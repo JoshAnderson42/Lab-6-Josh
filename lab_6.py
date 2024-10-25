@@ -4,12 +4,17 @@ def encode(password):
         encoded += str(int(num) + 3)[-1]
     return encoded
 
+def decode(encoded):
+	decoded = ''
+	for num in encoded:
+		decoded += str((int(num) - 3) % 10)
+	return decoded
 
 if __name__ == '__main__':
 
     while True:
 
-        #changed again
+        #changed again - brady
 
         print('\nMenu\n'
               '-------------\n'
@@ -23,6 +28,6 @@ if __name__ == '__main__':
             encoded = encode(input('Please enter your password to encode: '))
             print('Your password has been encoded and stored!')
         elif selection == '2':
-            print(f'The encoded password is {encoded} and the original password is {''}')
+            print(f'The encoded password is {encoded} and the original password is {decode(encoded)}')
         elif selection == '3':
             exit()
